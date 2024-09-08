@@ -6,10 +6,10 @@ import WeatherMoon28Filled from '@vicons/fluent/WeatherMoon28Filled'
 import { Icon } from '@vicons/utils'
 
 import { useStore } from '@/store'
-import { watchEffect } from 'vue'
+import { ref, watchEffect } from 'vue'
 
-const { isShowLevel } = $(useStore())
-let isDark = $ref(Boolean(localStorage.getItem('huarongdao_dark')))
+const { isShowLevel } = (useStore())
+let isDark = ref(Boolean(localStorage.getItem('huarongdao_dark')))
 watchEffect(() => {
   document.body.classList.toggle('dark', isDark)
   localStorage.setItem('huarongdao_dark', isDark ? 'true' : '')
